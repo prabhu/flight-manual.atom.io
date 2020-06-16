@@ -17,7 +17,10 @@ jobs:
     # 2. Compile or build the project before invoking scan
     #    Example: mvn compile, or npm install or pip install goes here
     # 3. Invoke ShiftLeft Scan with the github token. Leave the workspace empty to use relative url
-
+    - name: Setup Node.js environment
+      uses: actions/setup-node@v1.4.2
+    - name: Do npm install
+      run: npm install
     - name: Perform ShiftLeft Scan
       uses: ShiftLeftSecurity/scan-action@master
       env:
